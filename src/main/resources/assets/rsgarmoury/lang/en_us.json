@@ -1,0 +1,22 @@
+{
+  "item.rsgarmoury.sacrificial_dagger": "Sacrificial Dagger",
+  "item.rsgarmoury.concealed_heart": "Concealed Heart",
+  "item.rsgarmoury.rustic_vial": "Rustic Vial",
+  "item.rsgarmoury.concentrated_defense": "Concentrated Defense",
+  "item.rsgarmoury.soul_in_a_bottle": "Soul in a Bottle",
+  "item.rsgarmoury.soul_block": "Soul Block",
+  "item.rsgarmoury.spawnable_arena_block": "Spawnable Arena",
+  "item.rsgarmoury.spawnable_arena_wall": "Spawnable Arena Wall",
+  "block.rsgarmoury.soul_block": "Soul Block",
+  "block.rsgarmoury.spawnable_arena_block": "Spawnable Arena",
+  "block.rsgarmoury.spawnable_arena_wall": "Spawnable Arena Wall",
+  "creativetab.rsgarmoury.rsg_armoury_tab": "RSG Armoury",
+  "tooltip.rsgarmoury.concealed_heart.shift_down": "Will be removed",
+  "tooltip.rsgarmoury.concealed_heart": "Adds 2 max HP, 1 full heart",
+  "tooltip.rsgarmoury.concentrated_defense": "Adds 2 max armor",
+  "tooltip.rsgarmoury.rustic_vial": "Removes 2 max armor",
+  "tooltip.rsgarmoury.sacrificial_dagger": "Removes 2 max HP, 1 full heart",
+  "tooltip.rsgarmoury.spawnable_arena_block": "A block that spawns §1bleu balls§r",
+  "tooltip.rsgarmoury.soul_block": "Suckied dry",
+  "tooltip.rsgarmoury.spawnable_arena_wall": "Wallsszzz"
+}

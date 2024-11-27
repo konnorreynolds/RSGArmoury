@@ -1,0 +1,12 @@
+/gamemode sur
+/gamemode survival
+/give Dev rsgarmoury:rustic_vial
+/gamemode creative
+/gamemode survival
+/gamemode creative
+/time set day
+/time set night
+/time set day
+/gamemode survival
+/give Dev rsgarmoury:rsg_food 30
+/gamemode creative
