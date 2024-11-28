@@ -1,27 +1,27 @@
-[27Nov2024 22:44:35.150] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forge_userdev_data, --assetIndex, 17, --assetsDir, C:\Users\konno\.gradle\caches\forge_gradle\assets, --gameDir, ., --mod, rsgarmoury, --all, --output, C:\Users\konno\Documents\Minecraft Modding\1.21\src\generated\resources, --existing, C:\Users\konno\Documents\Minecraft Modding\1.21\src\main\resources]
-[27Nov2024 22:44:35.152] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.5+11-LTS
-[27Nov2024 22:44:35.153] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.2.1 starting: java version 21.0.5 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
-[27Nov2024 22:44:35.231] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forge_userdev_data
-[27Nov2024 22:44:35.302] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=jar:file:///C:/Users/konno/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.7/8ab114ac385e6dbdad5efafe28aba4df8120915f/mixin-0.8.7.jar!/ Service=ModLauncher Env=UNKNOWN
-[27Nov2024 22:44:35.957] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
-[27Nov2024 22:44:36.543] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forge_userdev_data' with arguments [--gameDir, ., --assetsDir, C:\Users\konno\.gradle\caches\forge_gradle\assets, --assetIndex, 17, --mod, rsgarmoury, --all, --output, C:\Users\konno\Documents\Minecraft Modding\1.21\src\generated\resources, --existing, C:\Users\konno\Documents\Minecraft Modding\1.21\src\main\resources]
-[27Nov2024 22:44:40.372] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 51.0.33, for MC 1.21 with MCP 20240613.102039
-[27Nov2024 22:44:40.372] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v51.0.33 Initialized
-[27Nov2024 22:44:40.388] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Opening jdk.naming.dns/com.sun.jndi.dns to java.naming
-[27Nov2024 22:44:40.806] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [rsgarmoury]
-[27Nov2024 22:44:40.852] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/konno/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.21-51.0.33_mapped_parchment_2024.11.10-1.21/forge-1.21-51.0.33_mapped_parchment_2024.11.10-1.21-recomp.jar%230!/assets/.mcassetsroot' uses unexpected schema
-[27Nov2024 22:44:40.852] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/konno/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.21-51.0.33_mapped_parchment_2024.11.10-1.21/forge-1.21-51.0.33_mapped_parchment_2024.11.10-1.21-recomp.jar%230!/data/.mcassetsroot' uses unexpected schema
-[27Nov2024 22:44:40.945] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
-[27Nov2024 22:44:41.091] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 143 ms
-[27Nov2024 22:44:41.091] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
-[27Nov2024 22:44:41.113] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 21 ms
-[27Nov2024 22:44:41.113] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id rsgarmoury
-[27Nov2024 22:44:41.116] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id rsgarmoury finished after 3 ms
-[27Nov2024 22:44:41.117] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id rsgarmoury
-[27Nov2024 22:44:41.117] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id rsgarmoury finished after 0 ms
-[27Nov2024 22:44:41.117] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: rsgarmoury
-[27Nov2024 22:44:41.120] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: rsgarmoury finished after 2 ms
-[27Nov2024 22:44:41.120] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: rsgarmoury
-[27Nov2024 22:44:41.185] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: rsgarmoury finished after 64 ms
-[27Nov2024 22:44:41.185] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 240 ms
-[27Nov2024 22:44:41.189] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 18, old count: 16, new count: 19, removed stale: 0, written: 2
+[28Nov2024 00:13:50.207] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forge_userdev_data, --assetIndex, 17, --assetsDir, C:\Users\konno\.gradle\caches\forge_gradle\assets, --gameDir, ., --mod, rsgarmoury, --all, --output, C:\Users\konno\Documents\Minecraft Modding\RSG Armoury\src\generated\resources, --existing, C:\Users\konno\Documents\Minecraft Modding\RSG Armoury\src\main\resources]
+[28Nov2024 00:13:50.209] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.5+11-LTS
+[28Nov2024 00:13:50.210] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.2.1 starting: java version 21.0.5 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
+[28Nov2024 00:13:50.294] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forge_userdev_data
+[28Nov2024 00:13:50.366] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=jar:file:///C:/Users/konno/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.7/8ab114ac385e6dbdad5efafe28aba4df8120915f/mixin-0.8.7.jar!/ Service=ModLauncher Env=UNKNOWN
+[28Nov2024 00:13:50.975] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
+[28Nov2024 00:13:51.495] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forge_userdev_data' with arguments [--gameDir, ., --assetsDir, C:\Users\konno\.gradle\caches\forge_gradle\assets, --assetIndex, 17, --mod, rsgarmoury, --all, --output, C:\Users\konno\Documents\Minecraft Modding\RSG Armoury\src\generated\resources, --existing, C:\Users\konno\Documents\Minecraft Modding\RSG Armoury\src\main\resources]
+[28Nov2024 00:13:54.936] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 51.0.33, for MC 1.21 with MCP 20240613.102039
+[28Nov2024 00:13:54.936] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v51.0.33 Initialized
+[28Nov2024 00:13:54.953] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Opening jdk.naming.dns/com.sun.jndi.dns to java.naming
+[28Nov2024 00:13:55.390] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [rsgarmoury]
+[28Nov2024 00:13:55.435] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/konno/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.21-51.0.33_mapped_parchment_2024.11.10-1.21/forge-1.21-51.0.33_mapped_parchment_2024.11.10-1.21-recomp.jar%230!/assets/.mcassetsroot' uses unexpected schema
+[28Nov2024 00:13:55.435] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/konno/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.21-51.0.33_mapped_parchment_2024.11.10-1.21/forge-1.21-51.0.33_mapped_parchment_2024.11.10-1.21-recomp.jar%230!/data/.mcassetsroot' uses unexpected schema
+[28Nov2024 00:13:55.510] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
+[28Nov2024 00:13:55.645] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 134 ms
+[28Nov2024 00:13:55.645] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
+[28Nov2024 00:13:55.664] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 20 ms
+[28Nov2024 00:13:55.666] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id rsgarmoury
+[28Nov2024 00:13:55.675] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id rsgarmoury finished after 9 ms
+[28Nov2024 00:13:55.675] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id rsgarmoury
+[28Nov2024 00:13:55.677] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id rsgarmoury finished after 1 ms
+[28Nov2024 00:13:55.677] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: rsgarmoury
+[28Nov2024 00:13:55.683] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: rsgarmoury finished after 6 ms
+[28Nov2024 00:13:55.683] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: rsgarmoury
+[28Nov2024 00:13:55.748] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: rsgarmoury finished after 64 ms
+[28Nov2024 00:13:55.748] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 238 ms
+[28Nov2024 00:13:55.754] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 19, old count: 0, new count: 20, removed stale: 0, written: 19

@@ -23,4 +23,6 @@
   "tooltip.rsgarmoury.spawnable_arena_block": "A block that spawns §1bleu balls§r",
   "tooltip.rsgarmoury.soul_block": "Suckied dry",
   "tooltip.rsgarmoury.spawnable_arena_wall": "Wallsszzz",
+
+  "effect.rsgarmoury.precise_heal": "Precise Heal"
 }

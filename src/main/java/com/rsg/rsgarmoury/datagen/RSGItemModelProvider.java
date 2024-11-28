@@ -19,7 +19,7 @@ public class RSGItemModelProvider extends ItemModelProvider {
         basicItem(RSGItems.SACRIFICIAL_DAGGER.get());
 
         basicItem(RSGItems.SOUL_IN_A_BOTTLE.get());
-        // basicItem(RSGItems.RSG_FOOD.get()); no texture
+        basicItem(RSGItems.RSG_FOOD.get());
     }
 
 }

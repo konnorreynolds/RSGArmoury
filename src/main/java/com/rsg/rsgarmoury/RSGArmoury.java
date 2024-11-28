@@ -2,7 +2,13 @@ package com.rsg.rsgarmoury;
 
 import com.mojang.logging.LogUtils;
 import com.rsg.rsgarmoury.block.RSGBlocks;
+import com.rsg.rsgarmoury.effect.RSGEffects;
 import com.rsg.rsgarmoury.item.RSGItems;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
+import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -34,6 +40,7 @@ public class RSGArmoury {
 
         RSGItems.register(modEventBus);
         RSGBlocks.register(modEventBus);
+        RSGEffects.register(modEventBus);
         RSGCreativeModeTabs.register(modEventBus);
 
         // Register the item to a creative tab
@@ -62,6 +69,10 @@ public class RSGArmoury {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
+
+            ItemBlockRenderTypes.setRenderLayer(RSGBlocks.SPAWNABLE_ARENA_WALL.get(), RenderType.translucent());
+
+            EntityRenderers.register(EntityType.SNOWBALL, ThrownItemRenderer::new);
 
         }
     }

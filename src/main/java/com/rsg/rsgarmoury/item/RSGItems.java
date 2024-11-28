@@ -5,9 +5,9 @@ import com.rsg.rsgarmoury.item.custom.ConcealedHeart;
 import com.rsg.rsgarmoury.item.custom.ConcentratedDefense;
 import com.rsg.rsgarmoury.item.custom.RusticVial;
 import com.rsg.rsgarmoury.item.custom.SacrificialDagger;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import com.rsg.rsgarmoury.item.custom.weapons.RSGProjectileItem;
+import com.rsg.rsgarmoury.item.custom.weapons.RSGSword;
+import com.rsg.rsgarmoury.item.custom.weapons.RSGToolTiers;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -38,7 +38,17 @@ public class RSGItems {
 
     public static final RegistryObject<Item> RSG_FOOD = ITEMS.register("rsg_food",
             () -> new Item(new Item.Properties()
-                    .food(RSGConsumables.RSG_FOOD)));
+                    .food(RSGConsumables.RSG_FOOD)
+                    .stacksTo(16)));
+
+    public static final RegistryObject<Item> RSG_SWORD = ITEMS.register("rsg_sword",
+            () -> new RSGSword(RSGToolTiers.RSG_Sword, new Item.Properties()
+                    .attributes(RSGSword.createAttributes(RSGToolTiers.RSG_Sword, 12, 2))));
+
+    public static final RegistryObject<Item> RSG_PROJECTILE = ITEMS.register("rsg_projectile",
+            () -> new RSGProjectileItem(new Item.Properties()
+                    .durability(20)
+                    .stacksTo(1)));
 
 
     // Calls the event handler i.e., eventBus

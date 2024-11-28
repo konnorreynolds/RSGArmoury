@@ -11,7 +11,9 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraftforge.registries.RegistryObject;
+import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
 
@@ -29,7 +31,12 @@ public class RSGBlockLootTableProvider extends BlockLootSubProvider {
     }
 
     @Override
-    protected Iterable<Block> getKnownBlocks() {
-        return RSGBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
+    protected @NotNull Iterable<Block> getKnownBlocks() {
+        ArrayList<Block> iterableBlocks = new ArrayList<>(); // define empty list
+        // Iterate through each block registered into ModBlocks.BLOCKS and add it into our list:
+        RSGBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(iterableBlocks::add);
+        // The above line requires that we need to have defined a loot table for every block in ModBlocks.BLOCKS.
+        // Also add the vanilla blocks we are updating:
+        return iterableBlocks;
     }
 }

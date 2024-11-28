@@ -8,10 +8,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.StainedGlassBlock;
-import net.minecraft.world.level.block.TransparentBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -28,18 +25,18 @@ public class RSGBlocks {
 
     public static final RegistryObject<Block> SOUL_BLOCK = registerBlock("soul_block",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .noLootTable()
-                    .strength(4f).requiresCorrectToolForDrops().sound(SoundType.AMETHYST)));
+                    .strength(4).requiresCorrectToolForDrops().sound(SoundType.AMETHYST)));
 
     public static final RegistryObject<Block> SPAWNABLE_ARENA_BLOCK = registerBlock("spawnable_arena_block",
             () -> new SpawnableArenaBlock(BlockBehaviour.Properties.of()
-                    .strength(8f)
+                    .strength(50)
                     .noLootTable()));
 
 
     public static final RegistryObject<Block> SPAWNABLE_ARENA_WALL = registerBlock("spawnable_arena_wall",
-            () -> new StainedGlassBlock(DyeColor.CYAN, BlockBehaviour.Properties.of()
+            () -> new StainedGlassBlock(DyeColor.CYAN, BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS)
                     .strength(-1)
+                    .noOcclusion()
                     .noLootTable()));
 
 
