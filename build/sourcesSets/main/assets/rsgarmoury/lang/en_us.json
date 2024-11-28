@@ -7,7 +7,7 @@
   "item.rsgarmoury.soul_block": "Soul Block",
   "item.rsgarmoury.spawnable_arena_block": "Spawnable Arena",
   "item.rsgarmoury.spawnable_arena_wall": "Spawnable Arena Wall",
-
+  "item.rsgarmoury.rsg_food": "RSG Food",
 
   "block.rsgarmoury.soul_block": "Soul Block",
   "block.rsgarmoury.spawnable_arena_block": "Spawnable Arena",
@@ -16,14 +16,11 @@
   "creativetab.rsgarmoury.rsg_armoury_tab": "RSG Armoury",
 
   "tooltip.rsgarmoury.concealed_heart.shift_down": "Will be removed",
-  "tooltip.rsgarmoury.concealed_heart" : "Adds 2 max HP, 1 full heart",
-
+  "tooltip.rsgarmoury.concealed_heart": "Adds 2 max HP, 1 full heart",
   "tooltip.rsgarmoury.concentrated_defense": "Adds 2 max armor",
   "tooltip.rsgarmoury.rustic_vial": "Removes 2 max armor",
   "tooltip.rsgarmoury.sacrificial_dagger": "Removes 2 max HP, 1 full heart",
-
-  "tooltip.rsgarmoury.spawnable_arena_block": "A block that spawns §2bleu balls§r",
-
+  "tooltip.rsgarmoury.spawnable_arena_block": "A block that spawns §1bleu balls§r",
   "tooltip.rsgarmoury.soul_block": "Suckied dry",
-  "tooltip.rsgarmoury.spawnable_arena_wall": "Wallsszzz"
+  "tooltip.rsgarmoury.spawnable_arena_wall": "Wallsszzz",
 }

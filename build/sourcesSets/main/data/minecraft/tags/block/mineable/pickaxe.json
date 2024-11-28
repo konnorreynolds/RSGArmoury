@@ -1,6 +1,6 @@
 {
-  "replace": false,
   "values": [
-    "rsgarmoury:soul_block"
+    "rsgarmoury:soul_block",
+    "rsgarmoury:spawnable_arena_block"
   ]
 }

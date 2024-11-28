@@ -1,14 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "##",
-    "##"
-  ],
+  "category": "misc",
   "key": {
-    "#": "rsgarmoury:soul_in_a_bottle"
+    "S": {
+      "item": "rsgarmoury:soul_in_a_bottle"
+    }
   },
+  "pattern": [
+    "SS",
+    "SS"
+  ],
   "result": {
-    "id": "rsgarmoury:soul_block",
-    "count": 1
+    "count": 1,
+    "id": "rsgarmoury:soul_block"
   }
 }
