@@ -14,9 +14,9 @@
   </component>
   <component name="McpModuleSettings">
     <option name="mappingFile" value="C:\Users\konno\Documents\Minecraft Modding\RSG Armoury\build\createMcpToSrg\output.tsrg" />
-    <option name="mcpVersion" value="parchment_1.21-2024.11.10-1.21.3" />
-    <option name="minecraftVersion" value="1.21.3" />
-    <option name="platformVersion" value="53.0.25" />
+    <option name="mcpVersion" value="parchment_2024.11.10-1.21" />
+    <option name="minecraftVersion" value="1.21" />
+    <option name="platformVersion" value="51.0.33" />
     <option name="srgType" value="TSRG" />
   </component>
 </module>

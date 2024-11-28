@@ -1,0 +1,7 @@
+// 1.21	2024-11-27T19:41:10.8294892	Block States: rsgarmoury
+a21196d4941571a1ac3261f9231c5f6494621744 assets/rsgarmoury/blockstates/soul_block.json
+34d4b668255bfd3ddf077a61d4b89a8ba0e59715 assets/rsgarmoury/blockstates/spawnable_arena_wall.json
+19ab7fe0152c9b9ff7cf602fd3c2d3f4276340d7 assets/rsgarmoury/models/block/soul_block.json
+3ba26f769b5301a9b5fa0bc3652fd410b5bbfe48 assets/rsgarmoury/models/block/spawnable_arena_wall.json
+969a5136eee13ce4177fe74a18290719e11d9fc0 assets/rsgarmoury/models/item/soul_block.json
+d8ae4e0de57b847ec4ca20336eda3efbdc7c5191 assets/rsgarmoury/models/item/spawnable_arena_wall.json
