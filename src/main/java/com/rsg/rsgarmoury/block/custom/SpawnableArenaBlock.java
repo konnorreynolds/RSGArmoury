@@ -39,11 +39,6 @@ public class SpawnableArenaBlock extends Block {
         return coordinates;
     }
 
-    public BlockPos blockData(int blockX, int blockY, int blockZ, BlockPos customPos) {
-        return new BlockPos(customPos.getX() + blockX, customPos.getY() + blockY, customPos.getZ() + blockZ);
-    }
-
-
     public void replaceUnlessAir(Level pLevel, BlockPos pPos, int blockX, int blockY, int blockZ) {
 
         BlockPos wallPos = new BlockPos(pPos.getX() + blockX, pPos.getY() + blockY, pPos.getZ() + blockZ);
@@ -75,8 +70,6 @@ public class SpawnableArenaBlock extends Block {
         List<Double[]> coordinates = generateSphere(25, 15000);
 
         if (!pLevel.isClientSide()) {
-            ServerLevel serverLevel = (ServerLevel) pLevel;
-
             for (Double[] coord : coordinates) {
                 int x = (int) Math.round(coord[0]);
                 int y = (int) Math.round(coord[1]);
@@ -95,8 +88,6 @@ public class SpawnableArenaBlock extends Block {
         super.onRemove(pState, pLevel, pPos, pNewState, pMovedByPiston);
 
         if (!pLevel.isClientSide()) {
-            ServerLevel serverLevel = (ServerLevel) pLevel;
-
             List<Double[]> coordinates = generateSphere(25, 15000);
 
             for (Double[] coord : coordinates) {

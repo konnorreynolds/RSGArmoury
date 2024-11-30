@@ -1,7 +1,6 @@
 package com.rsg.rsgarmoury.datagen;
 
 import com.rsg.rsgarmoury.RSGArmoury;
-import com.rsg.rsgarmoury.block.RSGBlocks;
 import com.rsg.rsgarmoury.item.RSGItems;
 import com.rsg.rsgarmoury.util.RSGTags;
 import net.minecraft.core.HolderLookup;

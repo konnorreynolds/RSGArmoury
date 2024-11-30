@@ -1,29 +1,21 @@
 package com.rsg.rsgarmoury.item.custom.weapons;
 
 import com.rsg.rsgarmoury.effect.RSGEffects;
-import com.rsg.rsgarmoury.item.RSGItems;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.particle.Particle;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.particles.BlockParticleOption;
-import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -34,19 +26,12 @@ import net.minecraft.world.item.MaceItem;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.event.entity.living.LivingFallEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.function.Predicate;
 
 public class ThunderHammer extends MaceItem {
-    Timer timer = new Timer();
 
     public ThunderHammer(Properties pProperties) {
         super(pProperties);
@@ -62,6 +47,7 @@ public class ThunderHammer extends MaceItem {
                     if (!pLevel.isClientSide) {
 
                         pPlayer.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 4 * 20, 1));
+                        pPlayer.addEffect(new MobEffectInstance(RSGEffects.FAST_FALL.getHolder().get()));
 
                         pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, pPlayer.getEquipmentSlotForItem(itemstack));
                         pPlayer.getCooldowns().addCooldown(this, 8 * 20);
@@ -75,8 +61,6 @@ public class ThunderHammer extends MaceItem {
                         if (!canSmashAttack(livingentity)) {
                             return 0.0F;
                         } else {
-                            float f3 = 3.0F;
-                            float f = 8.0F;
                             float f1 = livingentity.fallDistance;
                             float f2;
                             if (f1 <= 3.0F) {
@@ -106,6 +90,8 @@ public class ThunderHammer extends MaceItem {
 
                         serverplayer.setDeltaMovement(serverplayer.getDeltaMovement().with(Direction.Axis.Y, 0.01F));
                         serverplayer.connection.send(new ClientboundSetEntityMotionPacket(serverplayer));
+
+                        serverplayer.removeEffect(RSGEffects.FAST_FALL.getHolder().get());
 
                         serverlevel.sendParticles(ParticleTypes.FIREWORK, vec3.x, vec3.y, vec3.z, 250,
                                 3.5F, 0.3F, 3.5F, 0.15F);
