@@ -21,10 +21,21 @@ public class RSGEvents {
 
         if (event.getEntity() instanceof Player player) {
 
-            if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem() instanceof ThunderHammer
-            || player.getItemInHand(InteractionHand.MAIN_HAND).getItem() instanceof SpellTag spellTag && spellTag.getSecondaryValue() == 1) {
+            if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem() instanceof ThunderHammer) {
+                if (event.getDistance() > 6f && !player.isFallFlying()) {
 
-                if (event.getDistance() > 1.5f && !player.isFallFlying()) {
+                    if (player instanceof ServerPlayer serverPlayer) {
+
+                        ServerLevel serverLevel = (ServerLevel) player.level();
+
+                        event.setCanceled(true);
+
+                        groundSlam(serverLevel, serverPlayer, player);
+
+                    }
+                }
+            }   else if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem() instanceof SpellTag spellTag && spellTag.getSecondaryValue() == 1) {
+                if (event.getDistance() > 6f && !player.isFallFlying()) {
 
                     if (player instanceof ServerPlayer serverPlayer) {
 
