@@ -28,10 +28,9 @@ public class RSGCreativeModeTabs {
                         output.accept(RSGItems.SOUL_IN_A_BOTTLE.get());
                         output.accept(RSGItems.RSG_FOOD.get());
 
-                        output.accept(RSGItems.RSG_SWORD.get());
-                        output.accept(RSGItems.RSG_PROJECTILE.get());
+                        output.accept(RSGItems.THUNDER_HAMMER.get());
+                        output.accept(RSGItems.SPELL_TAG.get());
 
-                        output.accept(RSGBlocks.SOUL_BLOCK.get());
                         output.accept(RSGBlocks.SPAWNABLE_ARENA_BLOCK.get());
                         output.accept(RSGBlocks.SPAWNABLE_ARENA_WALL.get());
 

@@ -20,15 +20,12 @@ public class RSGBlockTagProvider extends BlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(RSGBlocks.SOUL_BLOCK.get())
                 .add(RSGBlocks.SPAWNABLE_ARENA_BLOCK.get());
 
         tag(BlockTags.NEEDS_IRON_TOOL)
-                .add(RSGBlocks.SOUL_BLOCK.get())
                 .add(RSGBlocks.SPAWNABLE_ARENA_BLOCK.get());
 
         tag(RSGTags.Blocks.RSG_BLOCK)
-                .add(RSGBlocks.SOUL_BLOCK.get())
                 .add(RSGBlocks.SPAWNABLE_ARENA_BLOCK.get())
                 .add(RSGBlocks.SPAWNABLE_ARENA_WALL.get());
     }

@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "rsgarmoury:block/spawnable_arena_wall"
-  }
-}

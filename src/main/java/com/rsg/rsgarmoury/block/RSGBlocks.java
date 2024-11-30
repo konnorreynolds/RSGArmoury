@@ -23,17 +23,13 @@ public class RSGBlocks {
             DeferredRegister.create(ForgeRegistries.BLOCKS, RSGArmoury.MOD_ID);
 
 
-    public static final RegistryObject<Block> SOUL_BLOCK = registerBlock("soul_block",
-            () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(4).requiresCorrectToolForDrops().sound(SoundType.AMETHYST)));
-
-    public static final RegistryObject<Block> SPAWNABLE_ARENA_BLOCK = registerBlock("spawnable_arena_block",
+    public static final RegistryObject<Block> SPAWNABLE_ARENA_BLOCK = registerBlock("spawnable_arena_block", false,
             () -> new SpawnableArenaBlock(BlockBehaviour.Properties.of()
                     .strength(50)
                     .noLootTable()));
 
 
-    public static final RegistryObject<Block> SPAWNABLE_ARENA_WALL = registerBlock("spawnable_arena_wall",
+    public static final RegistryObject<Block> SPAWNABLE_ARENA_WALL = registerBlock("spawnable_arena_wall", true,
             () -> new StainedGlassBlock(DyeColor.CYAN, BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS)
                     .strength(-1)
                     .noOcclusion()
@@ -41,16 +37,21 @@ public class RSGBlocks {
 
 
     // Command to register the block by first making it an item using registerBlockItem
-    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
+    private static <T extends Block> RegistryObject<T> registerBlock(String name, boolean hoverText, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        registerBlockItem(name, toReturn);
+        registerBlockItem(name, hoverText, toReturn);
         return toReturn;
     }
 
-    private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block) {
+    private static <T extends Block> void registerBlockItem(String name, boolean hoverText, RegistryObject<T> block) {
         RSGItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()) {
             @Override
             public void appendHoverText(ItemStack pStack, TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
+
+                if (hoverText) {
+                    pTooltipComponents.add(Component.translatable("tooltip.rsgarmoury." + name));
+                }
+
                 super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
             }
         });

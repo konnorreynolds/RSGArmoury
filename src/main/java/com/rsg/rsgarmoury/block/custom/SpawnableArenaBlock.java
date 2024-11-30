@@ -22,7 +22,7 @@ public class SpawnableArenaBlock extends Block {
         super(properties);
     }
 
-    private static List<Double[]> MathAttempt(int radius, int numPoints) {
+    private static List<Double[]> generateSphere(int radius, int numPoints) {
         List<Double[]> coordinates = new ArrayList<>();
 
         for (int i = 0; i < numPoints; i++) {
@@ -72,7 +72,7 @@ public class SpawnableArenaBlock extends Block {
     protected void onPlace(BlockState pState, Level pLevel, BlockPos pPos, BlockState pOldState, boolean pMovedByPiston) {
         super.onPlace(pState, pLevel, pPos, pOldState, pMovedByPiston);
 
-        List<Double[]> coordinates = MathAttempt(25, 15000);
+        List<Double[]> coordinates = generateSphere(25, 15000);
 
         if (!pLevel.isClientSide()) {
             ServerLevel serverLevel = (ServerLevel) pLevel;
@@ -97,7 +97,7 @@ public class SpawnableArenaBlock extends Block {
         if (!pLevel.isClientSide()) {
             ServerLevel serverLevel = (ServerLevel) pLevel;
 
-            List<Double[]> coordinates = MathAttempt(25, 15000);
+            List<Double[]> coordinates = generateSphere(25, 15000);
 
             for (Double[] coord : coordinates) {
                 int x = (int) Math.round(coord[0]);
@@ -107,7 +107,7 @@ public class SpawnableArenaBlock extends Block {
                 replaceIfWall(pLevel, pPos, x, y, z);
             }
 
-            pLevel.playSound(null, pPos, SoundEvents.ENDER_DRAGON_DEATH, SoundSource.BLOCKS);
+            pLevel.playSound(null, pPos, SoundEvents.GHAST_SCREAM, SoundSource.BLOCKS);
 
         }
     }

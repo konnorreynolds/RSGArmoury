@@ -26,12 +26,10 @@ public class RSGBlockLootTableProvider extends BlockLootSubProvider {
     @Override
     protected void generate() {
 
-        dropSelf(RSGBlocks.SOUL_BLOCK.get());
-
     }
 
     @Override
-    protected @NotNull Iterable<Block> getKnownBlocks() {
+    protected Iterable<Block> getKnownBlocks() {
         ArrayList<Block> iterableBlocks = new ArrayList<>(); // define empty list
         // Iterate through each block registered into ModBlocks.BLOCKS and add it into our list:
         RSGBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(iterableBlocks::add);

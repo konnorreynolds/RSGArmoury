@@ -19,14 +19,6 @@ public class RSGRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildRecipes(RecipeOutput pRecipeOutput) {
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, RSGBlocks.SOUL_BLOCK.get())
-                .pattern("SS")
-                .pattern("SS")
-                .define('S', RSGItems.SOUL_IN_A_BOTTLE.get())
-                .unlockedBy(getHasName(RSGItems.SOUL_IN_A_BOTTLE.get()), has(RSGItems.SOUL_IN_A_BOTTLE.get()))
-                .save(pRecipeOutput);
-
     }
 }
 
