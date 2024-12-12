@@ -30,6 +30,7 @@ public class RSGCreativeModeTabs {
 
                         output.accept(RSGItems.THUNDER_HAMMER.get());
                         output.accept(RSGItems.SPELL_TAG.get());
+                        output.accept(RSGItems.SPELL_STAFF.get());
 
                         output.accept(RSGBlocks.SPAWNABLE_ARENA_BLOCK.get());
                         output.accept(RSGBlocks.SPAWNABLE_ARENA_WALL.get());

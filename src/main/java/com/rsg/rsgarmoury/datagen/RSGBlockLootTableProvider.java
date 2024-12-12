@@ -13,7 +13,7 @@ import java.util.Set;
 public class RSGBlockLootTableProvider extends BlockLootSubProvider {
 
     protected RSGBlockLootTableProvider(HolderLookup.Provider pRegistries) {
-        super(Set.of(), FeatureFlags.REGISTRY.allFlags() , pRegistries);
+        super(Set.of(), FeatureFlags.REGISTRY.allFlags(), pRegistries);
     }
 
     @Override

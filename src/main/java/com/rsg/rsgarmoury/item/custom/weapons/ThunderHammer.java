@@ -35,29 +35,9 @@ public class ThunderHammer extends MaceItem {
         super(pProperties);
     }
 
-
-
-    @Override
-    public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
-
-                    ItemStack itemstack = pPlayer.getItemInHand(pUsedHand);
-
-                    if (!pLevel.isClientSide) {
-
-                        pPlayer.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 4 * 20, 1));
-                        pPlayer.addEffect(new MobEffectInstance(RSGEffects.FAST_FALL.getHolder().get(), 10 * 20, 1));
-
-                        pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, pPlayer.getEquipmentSlotForItem(itemstack));
-                        pPlayer.getCooldowns().addCooldown(this, 8 * 20);
-                    }
-                    return InteractionResultHolder.success(itemstack);
-                }
-
-
-
     public static void groundSlam(Level pLevel, Player pPlayer, Entity pEntity) {
         if (pPlayer instanceof ServerPlayer serverplayer) {
-            ServerLevel serverlevel = (ServerLevel)pPlayer.level();
+            ServerLevel serverlevel = (ServerLevel) pPlayer.level();
 
             BlockPos blockPos = serverplayer.getOnPos();
 
@@ -76,7 +56,6 @@ public class ThunderHammer extends MaceItem {
             knockback(serverlevel, serverplayer, pPlayer);
         }
     }
-
 
     public static void knockback(Level pLevel, Player pPlayer, Entity pEntity) {
         pLevel.levelEvent(2013, pEntity.getOnPos(), 750);
@@ -138,6 +117,21 @@ public class ThunderHammer extends MaceItem {
         return (3.5 - pEntityPos.length()) * 0.7F * (double) (pPlayer.fallDistance > 5.0F ? 2 : 1) * (1.0 - pEntity.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE));
     }
 
+    @Override
+    public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
+
+        ItemStack itemstack = pPlayer.getItemInHand(pUsedHand);
+
+        if (!pLevel.isClientSide) {
+
+            pPlayer.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 4 * 20, 1));
+            pPlayer.addEffect(new MobEffectInstance(RSGEffects.FAST_FALL.getHolder().get(), 10 * 20, 1));
+
+            pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, pPlayer.getEquipmentSlotForItem(itemstack));
+            pPlayer.getCooldowns().addCooldown(this, 8 * 20);
+        }
+        return InteractionResultHolder.success(itemstack);
+    }
 
     @Override
     public void appendHoverText(ItemStack pStack, TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {

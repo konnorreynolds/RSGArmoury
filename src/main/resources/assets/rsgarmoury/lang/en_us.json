@@ -1,9 +1,7 @@
 {
   "key.rsgarmooury.spelltag.secondaryforward": "Secondary Forward",
   "key.rsgarmooury.spelltag.secondaryreverse": "Secondary Reverse",
-
   "key.categories.rsgarmoury": "RSG Armoury",
-
   "item.rsgarmoury.sacrificial_dagger": "Sacrificial Dagger",
   "item.rsgarmoury.concealed_heart": "Concealed Heart",
   "item.rsgarmoury.rustic_vial": "Rustic Vial",
@@ -12,32 +10,23 @@
   "item.rsgarmoury.spawnable_arena_block": "Spawnable Arena",
   "item.rsgarmoury.spawnable_arena_wall": "Spawnable Arena Wall",
   "item.rsgarmoury.rsg_food": "RSG Food",
-
   "item.rsgarmoury.spell_tag": "Spell Tag",
   "item.rsgarmoury.thunder_hammer": "Thunder Hammer",
-
   "block.rsgarmoury.spawnable_arena_block": "Spawnable Arena",
   "block.rsgarmoury.spawnable_arena_wall": "Spawnable Arena Wall",
-
   "creativetab.rsgarmoury.rsg_armoury_tab": "RSG Armoury",
-
   "tooltip.rsgarmoury.soul_in_a_bottle": "Slime in a JAR",
-
   "tooltip.rsgarmoury.concealed_heart": "Adds 2 max HP on use",
   "tooltip.rsgarmoury.concentrated_defense": "Adds 2 max armor on use",
   "tooltip.rsgarmoury.rustic_vial": "Removes 2 max armor on use",
   "tooltip.rsgarmoury.sacrificial_dagger": "Removes 2 max HP from harmed entity",
-
   "tooltip.rsgarmoury.rsg_food": "Yummy",
-
   "tooltip.rsgarmoury.spawnable_arena_block": "A block that spawns a §1arena§r",
   "tooltip.rsgarmoury.spawnable_arena_wall": "Walls spawned from the Spawnable Arena Block",
-
   "tooltip.rsgarmoury.spell_tag.shiftdown": "Use §1Secondary Forward§r and §1Secondary Reverse§f keybinds and use to cycle abilities",
   "tooltip.rsgarmoury.spell_tag": "Takes on the secondaries of other items",
   "tooltip.rsgarmoury.thunder_hammer.shiftdown": "Use will activate levitation and increased fall speed, causing a ground slam AOE attack upon hitting the ground. Negates fall damage upon slam attack",
   "tooltip.rsgarmoury.thunder_hammer": "A hammer akin to Mjolnir",
-
   "effect.rsgarmoury.precise_heal": "Precise Heal",
   "effect.rsgarmoury.fast_fall": "Fast Fall"
 }

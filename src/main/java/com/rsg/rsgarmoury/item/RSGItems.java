@@ -6,6 +6,7 @@ import com.rsg.rsgarmoury.item.custom.ConcentratedDefense;
 import com.rsg.rsgarmoury.item.custom.RusticVial;
 import com.rsg.rsgarmoury.item.custom.SacrificialDagger;
 import com.rsg.rsgarmoury.item.custom.weapons.RSGToolTiers;
+import com.rsg.rsgarmoury.item.custom.weapons.SpellStaff;
 import com.rsg.rsgarmoury.item.custom.weapons.SpellTag;
 import com.rsg.rsgarmoury.item.custom.weapons.ThunderHammer;
 import net.minecraft.network.chat.Component;
@@ -47,7 +48,6 @@ public class RSGItems {
             });
 
 
-
     public static final RegistryObject<Item> SACRIFICIAL_DAGGER = ITEMS.register("sacrificial_dagger",
             () -> new SacrificialDagger(new Item.Properties()
                     .stacksTo(1)));
@@ -69,6 +69,12 @@ public class RSGItems {
     public static final RegistryObject<Item> SPELL_TAG = ITEMS.register("spell_tag",
             () -> new SpellTag(new Item.Properties()
                     .stacksTo(1)));
+
+    public static final RegistryObject<Item> SPELL_STAFF = ITEMS.register("spell_staff",
+            () -> new SpellStaff(new Item.Properties()
+                    .durability(100)
+                    .stacksTo(1)));
+
 
     // Calls the event handler i.e., eventBus
     public static void register(IEventBus eventBus) {

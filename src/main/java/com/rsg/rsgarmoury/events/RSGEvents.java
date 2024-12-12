@@ -16,6 +16,7 @@ import static com.rsg.rsgarmoury.item.custom.weapons.ThunderHammer.groundSlam;
 @Mod.EventBusSubscriber(modid = RSGArmoury.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class RSGEvents {
 
+
     @SubscribeEvent
     public static void thunderHammerSlam(LivingFallEvent event) {
 
@@ -34,7 +35,7 @@ public class RSGEvents {
 
                     }
                 }
-            }   else if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem() instanceof SpellTag spellTag && spellTag.getSecondaryValue() == 1) {
+            } else if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem() instanceof SpellTag spellTag && spellTag.getSecondaryValue() == 1) {
                 if (event.getDistance() > 6f && !player.isFallFlying()) {
 
                     if (player instanceof ServerPlayer serverPlayer) {
@@ -51,5 +52,6 @@ public class RSGEvents {
         }
 
     }
+
 
 }

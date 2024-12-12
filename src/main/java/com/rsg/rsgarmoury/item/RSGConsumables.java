@@ -7,7 +7,7 @@ import net.minecraft.world.food.FoodProperties;
 public class RSGConsumables {
 
     public static final FoodProperties RSG_FOOD = new FoodProperties.Builder()
-            .effect(new MobEffectInstance(RSGEffects.PRECISE_HEAL.getHolder().get(), 1,1), 1)
+            .effect(new MobEffectInstance(RSGEffects.PRECISE_HEAL.getHolder().get(), 1, 1), 1)
             .alwaysEdible()
             .fast()
             .build();

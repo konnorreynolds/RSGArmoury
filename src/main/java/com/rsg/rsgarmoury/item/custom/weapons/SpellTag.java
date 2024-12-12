@@ -18,6 +18,7 @@ import java.util.List;
 
 import static com.rsg.rsgarmoury.events.ClientEvents.secondaryForward;
 import static com.rsg.rsgarmoury.events.ClientEvents.secondaryReverse;
+
 public class SpellTag extends Item {
 
     private int currentSecondary = 0;
@@ -35,19 +36,19 @@ public class SpellTag extends Item {
                 currentSecondary = currentSecondary + 1;
                 updateSecondary(pPlayer);
 
-            }   else if (secondaryForward.isDown() && currentSecondary == 1) {
+            } else if (secondaryForward.isDown() && currentSecondary == 1) {
                 currentSecondary = 0;
                 updateSecondary(pPlayer);
 
-            }   else if (secondaryReverse.isDown() && currentSecondary != 0) {
+            } else if (secondaryReverse.isDown() && currentSecondary != 0) {
                 currentSecondary = currentSecondary - 1;
                 updateSecondary(pPlayer);
 
-            }   else if (secondaryReverse.isDown() && currentSecondary == 0) {
+            } else if (secondaryReverse.isDown() && currentSecondary == 0) {
                 currentSecondary = 1;
                 updateSecondary(pPlayer);
 
-            }   else {
+            } else {
 
                 getSecondary(pLevel, pPlayer, pUsedHand);
 
@@ -77,12 +78,12 @@ public class SpellTag extends Item {
 
             SpellTagProjectile projectile = new SpellTagProjectile(pLevel, pPlayer);
             projectile.setItem(itemstack);
-            projectile.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, 4F, 0F);
+            projectile.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, 5F, 0F);
             pLevel.addFreshEntity(projectile);
 
             pPlayer.getCooldowns().addCooldown(this, 10);
 
-        }   else if (currentSecondary == 1) {
+        } else if (currentSecondary == 1) {
             RSGItems.THUNDER_HAMMER.get().use(pLevel, pPlayer, pUsedHand);
             pPlayer.getCooldowns().addCooldown(this, 8 * 20);
         }
@@ -91,7 +92,7 @@ public class SpellTag extends Item {
     public void updateSecondary(Player pPlayer) {
         if (currentSecondary == 0) {
             pPlayer.sendSystemMessage(Component.literal("Default"));
-        }   else if (currentSecondary == 1) {
+        } else if (currentSecondary == 1) {
             pPlayer.sendSystemMessage(Component.literal("ThunderHammer"));
         }
     }

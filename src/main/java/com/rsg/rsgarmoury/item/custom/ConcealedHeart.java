@@ -34,7 +34,7 @@ public class ConcealedHeart extends Item {
 
     @Override
     public void appendHoverText(ItemStack pStack, TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
-            pTooltipComponents.add(Component.translatable("tooltip.rsgarmoury.concealed_heart"));
+        pTooltipComponents.add(Component.translatable("tooltip.rsgarmoury.concealed_heart"));
         super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
     }
 }
