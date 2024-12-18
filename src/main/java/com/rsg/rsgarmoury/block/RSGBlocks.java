@@ -1,6 +1,7 @@
 package com.rsg.rsgarmoury.block;
 
 import com.rsg.rsgarmoury.RSGArmoury;
+import com.rsg.rsgarmoury.block.custom.SecondaryTradeStation;
 import com.rsg.rsgarmoury.block.custom.SpawnableArenaBlock;
 import com.rsg.rsgarmoury.item.RSGItems;
 import net.minecraft.network.chat.Component;
@@ -33,6 +34,11 @@ public class RSGBlocks {
                     .strength(-1)
                     .noOcclusion()
                     .noLootTable()));
+
+    public static final RegistryObject<Block> SECONDARY_TRADE_STATION = registerBlock("secondary_trade_station", true,
+            () -> new SecondaryTradeStation(BlockBehaviour.Properties.of()
+                    .strength(5)
+                    .noOcclusion()));
 
 
     // Command to register the block by first making it an item using registerBlockItem

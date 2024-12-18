@@ -25,7 +25,7 @@ public class SpellStaffEvents {
     public static void regenMana(TickEvent.PlayerTickEvent event) {
         if (event.side == LogicalSide.SERVER) {
             Player player = event.player;
-            if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem() instanceof SpellStaff spellStaff && player.getRandom().nextFloat() < .15) {
+            if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem() instanceof SpellStaff spellStaff && player.getRandom().nextFloat() < spellStaff.getManaRegen()) {
                 player.getItemInHand(InteractionHand.MAIN_HAND).hurtAndBreak(-1, player, player.getEquipmentSlotForItem(player.getItemInHand(InteractionHand.MAIN_HAND)));
             }
         }

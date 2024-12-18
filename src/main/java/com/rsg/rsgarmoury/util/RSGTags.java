@@ -22,6 +22,10 @@ public class RSGTags {
 
         public static final TagKey<Item> RSG_ITEM = createTag("rsg_item");
 
+        public static final TagKey<Item> RSG_WEAPONS = createTag("rsg_weapons");
+
+        public static final TagKey<Item> RSG_UPGRADES = createTag("rsg_upgrades");
+
         private static TagKey<Item> createTag(String name) {
             return ItemTags.create(ResourceLocation.fromNamespaceAndPath(RSGArmoury.MOD_ID, name));
         }

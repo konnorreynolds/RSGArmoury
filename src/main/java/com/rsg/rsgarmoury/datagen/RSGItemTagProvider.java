@@ -27,5 +27,18 @@ public class RSGItemTagProvider extends ItemTagsProvider {
 
                 .add(RSGItems.SOUL_IN_A_BOTTLE.get())
                 .add(RSGItems.RSG_FOOD.get());
+
+        tag(RSGTags.Items.RSG_WEAPONS)
+                .add(RSGItems.SPELL_TAG.get())
+                .add(RSGItems.THUNDER_HAMMER.get())
+                .add(RSGItems.SPELL_STAFF.get());
+
+        tag(RSGTags.Items.RSG_UPGRADES)
+                .add(RSGItems.RED_SHARD.get())
+                .add(RSGItems.BLUE_SHARD.get())
+                .add(RSGItems.GREEN_SHARD.get())
+                .add(RSGItems.WHITE_SCALE.get())
+                .add(RSGItems.BLACK_SCALE.get());
+
     }
 }

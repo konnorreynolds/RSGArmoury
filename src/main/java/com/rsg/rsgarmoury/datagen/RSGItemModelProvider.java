@@ -18,6 +18,12 @@ public class RSGItemModelProvider extends ItemModelProvider {
         basicItem(RSGItems.RUSTIC_VIAL.get());
         basicItem(RSGItems.SACRIFICIAL_DAGGER.get());
 
+        basicItem(RSGItems.RED_SHARD.get());
+        basicItem(RSGItems.BLUE_SHARD.get());
+        basicItem(RSGItems.GREEN_SHARD.get());
+        basicItem(RSGItems.WHITE_SCALE.get());
+        basicItem(RSGItems.BLACK_SCALE.get());
+
         basicItem(RSGItems.THUNDER_HAMMER.get());
         basicItem(RSGItems.SPELL_TAG.get());
 

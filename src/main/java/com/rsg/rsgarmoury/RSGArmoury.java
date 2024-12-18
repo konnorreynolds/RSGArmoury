@@ -2,8 +2,12 @@ package com.rsg.rsgarmoury;
 
 import com.mojang.logging.LogUtils;
 import com.rsg.rsgarmoury.block.RSGBlocks;
+import com.rsg.rsgarmoury.block.entity.RSGBlockEntities;
 import com.rsg.rsgarmoury.effect.RSGEffects;
 import com.rsg.rsgarmoury.item.RSGItems;
+import com.rsg.rsgarmoury.screen.RSGMenuTypes;
+import com.rsg.rsgarmoury.screen.SecondaryTradeStationScreen;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -40,7 +44,12 @@ public class RSGArmoury {
 
         RSGItems.register(modEventBus);
         RSGBlocks.register(modEventBus);
+
+        RSGBlockEntities.register(modEventBus);
+        RSGMenuTypes.register(modEventBus);
+
         RSGEffects.register(modEventBus);
+
         RSGCreativeModeTabs.register(modEventBus);
 
         // Register the item to a creative tab
@@ -72,6 +81,8 @@ public class RSGArmoury {
             ItemBlockRenderTypes.setRenderLayer(RSGBlocks.SPAWNABLE_ARENA_WALL.get(), RenderType.translucent());
 
             EntityRenderers.register(EntityType.SNOWBALL, ThrownItemRenderer::new);
+
+            MenuScreens.register(RSGMenuTypes.SECONDARY_TRADE_MENU.get(), SecondaryTradeStationScreen::new);
 
         }
     }

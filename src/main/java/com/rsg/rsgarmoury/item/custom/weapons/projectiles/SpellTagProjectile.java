@@ -1,16 +1,19 @@
 package com.rsg.rsgarmoury.item.custom.weapons.projectiles;
 
 import com.rsg.rsgarmoury.item.RSGItems;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.HitResult;
+import net.minecraft.world.phys.Vec3;
 
 public class SpellTagProjectile extends ThrowableItemProjectile {
+
+    int damage = 5;
+
     public SpellTagProjectile(EntityType<? extends ThrowableItemProjectile> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
@@ -25,7 +28,7 @@ public class SpellTagProjectile extends ThrowableItemProjectile {
 
     @Override
     protected double getDefaultGravity() {
-        return 0.01;
+        return 0.0;
     }
 
     @Override
@@ -36,12 +39,25 @@ public class SpellTagProjectile extends ThrowableItemProjectile {
     @Override
     protected void onHitEntity(EntityHitResult pResult) {
 
-        pResult.getEntity().hurt(damageSources().magic(), 20);
-
-        EntityType.LIGHTNING_BOLT.spawn((ServerLevel) pResult.getEntity().level(), pResult.getEntity().getOnPos(), MobSpawnType.TRIGGERED);
-
+        Vec3 hitPos = pResult.getLocation();
+        pResult.getEntity().hurt(damageSources().magic(), damage);
+        level().explode(this, hitPos.x, hitPos.y, hitPos.z, 1, true, Level.ExplosionInteraction.TRIGGER);
         this.kill();
 
         super.onHitEntity(pResult);
+    }
+
+    @Override
+    protected void onHit(HitResult pResult) {
+
+        Vec3 hitPos = pResult.getLocation();
+        level().explode(this, hitPos.x, hitPos.y, hitPos.z, 1, true, Level.ExplosionInteraction.TRIGGER);
+        this.kill();
+
+        super.onHit(pResult);
+    }
+
+    public void changeDamage(int value) {
+        damage = value;
     }
 }

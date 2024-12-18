@@ -19,6 +19,8 @@ public class RSGBlockLootTableProvider extends BlockLootSubProvider {
     @Override
     protected void generate() {
 
+        dropSelf(RSGBlocks.SECONDARY_TRADE_STATION.get());
+
     }
 
     @Override

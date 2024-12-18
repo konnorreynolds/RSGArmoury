@@ -21,7 +21,6 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.MaceItem;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
@@ -29,10 +28,32 @@ import net.minecraft.world.phys.Vec3;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class ThunderHammer extends MaceItem {
+public class ThunderHammer extends RSGWeaponClass {
+
+    private final int defaultSecondaryTime; // Ticks
+    private final int secondaryBoostTime;
 
     public ThunderHammer(Properties pProperties) {
+
         super(pProperties);
+        defaultSecondaryTime = 4 * 20;
+
+        if (secondaryBoostActive) {
+            secondaryBoostTime = 2 * 20;
+        } else {
+            secondaryBoostTime = 0;
+        }
+
+    }
+
+    public static void getSecondary(Player pPlayer, InteractionHand pUsedHand, int secondaryTime) {
+
+        pPlayer.addEffect(new MobEffectInstance(MobEffects.LEVITATION, secondaryTime, 1));
+        pPlayer.addEffect(new MobEffectInstance(RSGEffects.FAST_FALL.getHolder().get(), 10 * 20, 1));
+
+        pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, pPlayer.getEquipmentSlotForItem(pPlayer.getItemInHand(pUsedHand)));
+        pPlayer.getCooldowns().addCooldown(pPlayer.getItemInHand(pUsedHand).getItem(), 8 * 20);
+
     }
 
     public static void groundSlam(Level pLevel, Player pPlayer, Entity pEntity) {
@@ -46,7 +67,9 @@ public class ThunderHammer extends MaceItem {
             serverplayer.setDeltaMovement(serverplayer.getDeltaMovement().with(Direction.Axis.Y, 0.01F));
             serverplayer.connection.send(new ClientboundSetEntityMotionPacket(serverplayer));
 
-            serverplayer.removeEffect(RSGEffects.FAST_FALL.getHolder().get());
+            if (serverplayer.hasEffect(RSGEffects.FAST_FALL.getHolder().orElseThrow())) {
+                serverplayer.removeEffect(RSGEffects.FAST_FALL.getHolder().get());
+            }
 
             serverlevel.sendParticles(ParticleTypes.FIREWORK, vec3.x, vec3.y, vec3.z, 250,
                     3.5F, 0.3F, 3.5F, 0.15F);
@@ -55,6 +78,7 @@ public class ThunderHammer extends MaceItem {
 
             knockback(serverlevel, serverplayer, pPlayer);
         }
+
     }
 
     public static void knockback(Level pLevel, Player pPlayer, Entity pEntity) {
@@ -122,13 +146,14 @@ public class ThunderHammer extends MaceItem {
 
         ItemStack itemstack = pPlayer.getItemInHand(pUsedHand);
 
-        if (!pLevel.isClientSide) {
+        if (!isSecondaryRemoved) {
+            if (!pLevel.isClientSide) {
+                getSecondary(pPlayer, pUsedHand, defaultSecondaryTime + secondaryBoostTime);
 
-            pPlayer.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 4 * 20, 1));
-            pPlayer.addEffect(new MobEffectInstance(RSGEffects.FAST_FALL.getHolder().get(), 10 * 20, 1));
-
-            pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, pPlayer.getEquipmentSlotForItem(itemstack));
+            }
+        } else {
             pPlayer.getCooldowns().addCooldown(this, 8 * 20);
+            pPlayer.sendSystemMessage(Component.literal("Secondary Disabled"));
         }
         return InteractionResultHolder.success(itemstack);
     }
@@ -141,6 +166,11 @@ public class ThunderHammer extends MaceItem {
             pTooltipComponents.add(Component.translatable("tooltip.rsgarmoury.thunder_hammer"));
         }
         super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
+    }
+
+    @Override
+    public boolean isEnchantable(ItemStack pStack) {
+        return false;
     }
 
 }

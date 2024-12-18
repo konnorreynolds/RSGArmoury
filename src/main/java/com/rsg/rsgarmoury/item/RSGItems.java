@@ -61,9 +61,25 @@ public class RSGItems {
     public static final RegistryObject<Item> CONCENTRATED_DEFENSE = ITEMS.register("concentrated_defense",
             () -> new ConcentratedDefense(new Item.Properties()));
 
+    public static final RegistryObject<Item> RED_SHARD = ITEMS.register("red_shard",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> BLUE_SHARD = ITEMS.register("blue_shard",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> GREEN_SHARD = ITEMS.register("green_shard",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> WHITE_SCALE = ITEMS.register("white_scale",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> BLACK_SCALE = ITEMS.register("black_scale",
+            () -> new Item(new Item.Properties()));
+
+
     public static final RegistryObject<Item> THUNDER_HAMMER = ITEMS.register("thunder_hammer",
             () -> new ThunderHammer(new Item.Properties()
-                    .attributes(SwordItem.createAttributes(RSGToolTiers.RSG_Sword, 12, 1))
+                    .attributes(SwordItem.createAttributes(RSGToolTiers.RSG_Sword, 10, 1))
                     .stacksTo(1)));
 
     public static final RegistryObject<Item> SPELL_TAG = ITEMS.register("spell_tag",

@@ -13,7 +13,6 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
@@ -27,21 +26,30 @@ import java.util.stream.IntStream;
 import static com.rsg.rsgarmoury.events.ClientEvents.secondaryForward;
 import static com.rsg.rsgarmoury.events.ClientEvents.secondaryReverse;
 
-public class SpellStaff extends Item {
+public class SpellStaff extends RSGWeaponClass {
 
+    private static int maxMana;
+    private final double defaultManaRegen;
+    private final int baseFireballDamage;
     ArrayList<Mob> armyList = new ArrayList<>();
     private int currentSpell = 0;
 
-    private int maxSpells = 2;
+    public SpellStaff(Properties properties) {
+        super(properties);
 
-    public SpellStaff(Properties pProperties) {
-        super(pProperties);
+        baseFireballDamage = 10;
+        attackDamageBonus = 5;
+
+        defaultManaRegen = 0.15;
+
     }
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
 
         if (!pLevel.isClientSide()) {
+
+            int maxSpells = 2;
 
             if (secondaryForward.isDown() && currentSpell != maxSpells) {
                 currentSpell = currentSpell + 1;
@@ -80,26 +88,26 @@ public class SpellStaff extends Item {
 
         if (currentSpell == 0) {
 
-            if (pPlayer.getItemInHand(pUsedHand).getDamageValue() < 80) {   // 100 minus mana taken
+            if (pPlayer.getItemInHand(pUsedHand).getDamageValue() < maxMana - 30) {   // 100 minus mana taken
                 IntStream.rangeClosed(1, 4)
                         .forEach(i -> spawnUndead(serverLevel, pPlayer, pUsedHand));
 
 
-                pPlayer.getItemInHand(pUsedHand).hurtAndConvertOnBreak(30, this, pPlayer, pPlayer.getEquipmentSlotForItem(pPlayer.getItemInHand(pUsedHand)));
+                pPlayer.getItemInHand(pUsedHand).hurtAndConvertOnBreak((int) (30), this, pPlayer, pPlayer.getEquipmentSlotForItem(pPlayer.getItemInHand(pUsedHand)));
 
             }
 
         } else if (currentSpell == 1) {
 
-            if (pPlayer.getItemInHand(pUsedHand).getDamageValue() < 95) {
+            if (pPlayer.getItemInHand(pUsedHand).getDamageValue() < maxMana - 5) {
 
                 pPlayer.heal(5);
 
-                pPlayer.getItemInHand(pUsedHand).hurtAndConvertOnBreak(5, this, pPlayer, pPlayer.getEquipmentSlotForItem(pPlayer.getItemInHand(pUsedHand)));
+                pPlayer.getItemInHand(pUsedHand).hurtAndConvertOnBreak((int) (5), this, pPlayer, pPlayer.getEquipmentSlotForItem(pPlayer.getItemInHand(pUsedHand)));
 
             }
         } else if (currentSpell == 2) {
-            if (pPlayer.getItemInHand(pUsedHand).getDamageValue() < 90) {
+            if (pPlayer.getItemInHand(pUsedHand).getDamageValue() < maxMana - 10) {
                 pLevel.playSound(
                         null,
                         pPlayer.getX(),
@@ -111,11 +119,14 @@ public class SpellStaff extends Item {
                         0.4F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
 
                 SpellStaffFireball projectile = new SpellStaffFireball(pLevel, pPlayer);
+
+                projectile.changeDamage(baseFireballDamage + attackDamageAdditive);
+
                 projectile.setItem(new ItemStack(Items.FIRE_CHARGE));
                 projectile.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, 5F, 0F);
                 pLevel.addFreshEntity(projectile);
 
-                pPlayer.getItemInHand(pUsedHand).hurtAndConvertOnBreak(10, this, pPlayer, pPlayer.getEquipmentSlotForItem(pPlayer.getItemInHand(pUsedHand)));
+                pPlayer.getItemInHand(pUsedHand).hurtAndConvertOnBreak((int) (10), this, pPlayer, pPlayer.getEquipmentSlotForItem(pPlayer.getItemInHand(pUsedHand)));
             }
         }
     }
@@ -167,9 +178,15 @@ public class SpellStaff extends Item {
 
     }
 
+    public double getManaRegen() {
+        return defaultManaRegen + attackSpeedAdditive;
+    }
+
+
     public ArrayList<Mob> getArmyList() {
         return armyList;
     }
+
 
     @Override
     public void appendHoverText(ItemStack pStack, TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
@@ -179,6 +196,11 @@ public class SpellStaff extends Item {
             pTooltipComponents.add(Component.translatable("tooltip.rsgarmoury.spell_staff"));
         }
         super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
+    }
+
+    @Override
+    public boolean isEnchantable(ItemStack pStack) {
+        return false;
     }
 
 }

@@ -11,6 +11,9 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 
 public class SpellStaffFireball extends ThrowableItemProjectile {
+
+    int damage = 10;
+
     public SpellStaffFireball(EntityType<? extends ThrowableItemProjectile> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
@@ -25,7 +28,7 @@ public class SpellStaffFireball extends ThrowableItemProjectile {
 
     @Override
     protected double getDefaultGravity() {
-        return 0.01;
+        return 0.0;
     }
 
     @Override
@@ -50,12 +53,16 @@ public class SpellStaffFireball extends ThrowableItemProjectile {
 
         Vec3 hitPos = pResult.getLocation();
 
-        pResult.getEntity().hurt(damageSources().magic(), 20);
+        pResult.getEntity().hurt(damageSources().magic(), damage);
 
         level().explode(this, hitPos.x, hitPos.y, hitPos.z, 2, true, Level.ExplosionInteraction.TRIGGER);
 
         this.kill();
 
         super.onHitEntity(pResult);
+    }
+
+    public void changeDamage(int value) {
+        damage = value;
     }
 }
