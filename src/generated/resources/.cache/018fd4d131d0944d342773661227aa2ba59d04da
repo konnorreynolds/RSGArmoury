@@ -1,0 +1,4 @@
+// 1.21	2024-11-29T19:35:05.6349206	Tags for minecraft:block mod id rsgarmoury
+d7942466fe3e5aece50dd9b9ee0d6159c77a986d data/minecraft/tags/block/mineable/pickaxe.json
+d7942466fe3e5aece50dd9b9ee0d6159c77a986d data/minecraft/tags/block/needs_iron_tool.json
+12d9625c284e6455d8ff42e7ff911b13e7706a62 data/rsgarmoury/tags/block/rsg_block.json

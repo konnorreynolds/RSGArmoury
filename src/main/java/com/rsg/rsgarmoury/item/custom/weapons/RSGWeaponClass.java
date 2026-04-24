@@ -1,11 +1,20 @@
 package com.rsg.rsgarmoury.item.custom.weapons;
 
+import com.google.common.collect.Multimap;
+import net.minecraft.core.Holder;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.EquipmentSlotGroup;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
+
+import java.util.*;
+import java.util.stream.Stream;
 
 public class RSGWeaponClass extends Item {
 
@@ -22,19 +31,6 @@ public class RSGWeaponClass extends Item {
 
     public RSGWeaponClass(Properties pProperties) {
         super(pProperties);
-    }
-
-    public static ItemAttributeModifiers createAttributes(Tier pTier, int pAttackDamage, float pAttackSpeed) {
-        return ItemAttributeModifiers.builder()
-                .add(
-                        Attributes.ATTACK_DAMAGE,
-                        new AttributeModifier(BASE_ATTACK_DAMAGE_ID, (double) ((float) pAttackDamage + pTier.getAttackDamageBonus() + attackDamageAdditive), AttributeModifier.Operation.ADD_VALUE),
-                        EquipmentSlotGroup.MAINHAND
-                )
-                .add(
-                        Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_ID, (double) pAttackSpeed + attackSpeedAdditive, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND
-                )
-                .build();
     }
 
     public void addUpgrades(String upgrade) {
@@ -110,4 +106,15 @@ public class RSGWeaponClass extends Item {
         return isSecondaryRemoved;
     }
 
+    public void replaceModifiers(EquipmentSlotGroup pSlot, Holder<Attribute> attributeType, AttributeModifier attributeModifier, double amount) {
+
+        AttributeModifier modifier = new AttributeModifier(attributeModifier.id(), attributeModifier.amount() + amount, attributeModifier.operation());
+
+        ItemAttributeModifiers.builder()
+                .add(attributeType, modifier, pSlot)
+
+                .build();
+
+
+    }
 }
